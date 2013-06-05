@@ -1,5 +1,5 @@
 class CreateAnswerTable < ActiveRecord::Migration
-  def create
+  def change
     create_table :answers do |column|
       column.string :description, :answerable_type
       column.integer :answerable_id

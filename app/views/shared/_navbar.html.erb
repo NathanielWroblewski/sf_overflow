@@ -2,7 +2,7 @@
   <ul>
     <% unless current_user %>
       <li><a href="">Login</a></li>
-      <li><a href="">Signup</a></li>
+      <li><%= link_to "Signup", new_user_path %></li>
     <% end %>
     <% if current_user %>
       <li><a href="">Logout</a></li>
