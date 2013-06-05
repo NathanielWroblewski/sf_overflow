@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+4class SessionsController < ApplicationController
 
   def create
     p params
