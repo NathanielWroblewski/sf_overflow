@@ -5,39 +5,55 @@ describe 'User' do
   user = create(:user)
   
   describe "sign-up" do
-    
+    context "successful sign-up" do
+      it "should route to profile page"
+    end
+
+    context "unsuccessful sign-up" do
+      it "should return an error if the username or email is not unique"
+      it "should return an error when user ommits a required field"
+    end
   end
 
   describe "sign-in" do
-    it "should"
-  end
+    context "successful sign-in" do
+      it "should route to profile page"
+    end
 
-  describe "create a question" do
+    context "unsuccessful sign-in" do
+      it "should return an error if username doesn't exist in database"
+      it "should return an error if passwords don't match"
+      
+   end
 
-  end
+ end
 
-  describe "answer a question" do
+ describe "create a question" do
 
-  end
+ end
 
-  describe "edit a question" do
+ describe "answer a question" do
 
-  end
+ end
 
-  describe "edit an answer" do
+ describe "edit a question" do
 
-  end
+ end
 
-  describe "delete a question" do
+ describe "edit an answer" do
 
-  end
+ end
 
-  describe "delete an answer" do
+ describe "delete a question" do
 
-  end
+ end
 
-  describe "view a question" do
+ describe "delete an answer" do
 
-  end
+ end
+
+ describe "view a question" do
+
+ end
 
 end
