@@ -1,5 +1,5 @@
 class CreateUsersTable < ActiveRecord::Migration
-  def create
+  def change
     create_table :users do |column|
       column.string :username, :email, :password_digest
       column.timestamps

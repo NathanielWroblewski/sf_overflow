@@ -1,5 +1,5 @@
 class CreateQuestionsTable < ActiveRecord::Migration
-  def create
+  def change
     create_table :questions do |column|
       column.string :title, :description
       column.references :user
