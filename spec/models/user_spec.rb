@@ -22,10 +22,8 @@ describe 'User' do
 
     context "unsuccessful sign-in" do
       it "should return an error if username doesn't exist in database"
-      it "should return an error if passwords don't match"
-      
+      it "should return an error if passwords don't match"      
     end
-
   end
 
   describe "create a question" do
@@ -52,14 +50,13 @@ describe 'User' do
     it "should delete an existing answer"
   end
 
-  describe "view a question" do
+  describe "view a question" do #AHHHHHHHHH SO MANY TESTS AND CONTEXTS!!!!!!!
     context "signed-in" do
+      it "should"
     end
-    
+
     context "NOT signed-in" do
+      it "should not allow"
     end
-
-    AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH SO MANY TESTS AND CONTEXTS!!!!!!!
   end
-
 end
