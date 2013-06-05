@@ -17,36 +17,36 @@ describe Answer do
   context "when logged out"
   it "should post the comment"
 
-  describe "GET /answer" do
-    it "displays answers" do
-      Answer.create!(:description "hello there!")
-      visit task_path
-      response.body.should include("hello there!")
-    end
-  end
+  # describe "GET /answer" do
+  #   it "displays answers" do
+  #     Answer.create!(:description "hello there!")
+  #     visit task_path
+  #     response.body.should include("hello there!")
+  #   end
+  # end
 
   describe "POST /answer" do
-    it "creates a answer" :js => true do
-      post_via_redirect tasks_path, :task => { :name => "mow lawn" }
+    it "creates a answer" do
+      post_via_redirect question_path, :answer => { :description => "mow lawn" }
       response.body.should include("mow lawn")
       #need to go through form! Use capybara
     end
   end 
 
-  describe '#destroy' do
+#   describe '#destroy' do
 
-    context 'when resource is found' do
-      it 'responds with 200'
-      it 'shows the resource'
-    end
+#     context 'when resource is found' do
+#       it 'responds with 200'
+#       it 'shows the resource'
+#     end
 
-    context 'when resource is not found' do
-      it 'responds with 404'
-    end
+#     context 'when resource is not found' do
+#       it 'responds with 404'
+#     end
 
-    context 'when resource is not owned' do
-      it 'responds with 404'
-    end
-  end
-#database_cleaner
+#     context 'when resource is not owned' do
+#       it 'responds with 404'
+#     end
+#   end
+# #database_cleaner
 end
