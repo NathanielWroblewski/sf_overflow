@@ -36,10 +36,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 gem 'debugger'
 
-group :development, :test do
+group :development do
   gem 'rspec-rails'
   gem 'sextant'
   gem 'better_errors'
+  gem 'cancan'
+  gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 group :test do
