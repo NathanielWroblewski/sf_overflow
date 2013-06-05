@@ -9,9 +9,9 @@ class Ability
         can :manage, :all
       elsif user.user?
         can [:read,:create], :all
-        can [:update, :delete], :all if :user_id => user.id
+        can [:update, :delete], :all if user.id
       else
-        can :read :all
+        can :read, :all
       end
     
     # The first argument to `can` is the action you are giving the user 
