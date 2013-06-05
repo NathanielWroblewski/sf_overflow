@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+    <% unless current_user %>
+      <li><a href="">Login</a></li>
+      <li><a href="">Signup</a></li>
+    <% end %>
+    <% if current_user %>
+      <li><a href="">Logout</a></li>
+    <% end %>
+  </ul>
+</nav>
+
