@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe 'User' do
-  Factory.create(:user)
+  user = Factory.create(:user)
   
   context "sign-up" do
     it "should have username"
