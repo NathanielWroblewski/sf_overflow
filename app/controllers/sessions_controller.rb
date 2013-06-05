@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+authenticated new users
 
   def create
     p params
