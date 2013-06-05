@@ -26,13 +26,27 @@ describe Answer do
   end
 
   describe "POST /answer" do
-    it "creates a answer" do
+    it "creates a answer" :js => true do
       post_via_redirect tasks_path, :task => { :name => "mow lawn" }
       response.body.should include("mow lawn")
       #need to go through form! Use capybara
     end
   end 
 
+  describe '#destroy' do
 
+    context 'when resource is found' do
+      it 'responds with 200'
+      it 'shows the resource'
+    end
 
+    context 'when resource is not found' do
+      it 'responds with 404'
+    end
+
+    context 'when resource is not owned' do
+      it 'responds with 404'
+    end
+  end
+#database_cleaner
 end
