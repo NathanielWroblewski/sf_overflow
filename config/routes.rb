@@ -1,6 +1,6 @@
 SfOverflow::Application.routes.draw do
 
-  resources :user
+  resources :user, :except => :index
   resources :question
   resources :answer
 
