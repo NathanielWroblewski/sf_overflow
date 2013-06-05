@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe 'User' do
-  user = create(:user)
+  # user = create(:user)
   
   describe "sign-up" do
     context "successful sign-up" do
@@ -24,36 +24,42 @@ describe 'User' do
       it "should return an error if username doesn't exist in database"
       it "should return an error if passwords don't match"
       
-   end
+    end
 
- end
+  end
 
- describe "create a question" do
+  describe "create a question" do
+    it "should create a new question"
+  end
 
- end
+  describe "answer a question" do
+    it "should answer a question"
+  end
 
- describe "answer a question" do
+  describe "edit a question" do
+    it "should edit an existing question"
+  end
 
- end
+  describe "edit an answer" do
+    it "should edit an existing answer"
+  end
 
- describe "edit a question" do
+  describe "delete a question" do
+    it "should delete an existing question"
+  end
 
- end
+  describe "delete an answer" do
+    it "should delete an existing answer"
+  end
 
- describe "edit an answer" do
+  describe "view a question" do
+    context "signed-in" do
+    end
+    
+    context "NOT signed-in" do
+    end
 
- end
-
- describe "delete a question" do
-
- end
-
- describe "delete an answer" do
-
- end
-
- describe "view a question" do
-
- end
+    AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH SO MANY TESTS AND CONTEXTS!!!!!!!
+  end
 
 end
