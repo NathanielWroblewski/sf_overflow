@@ -1,4 +1,9 @@
 SfOverflow::Application.routes.draw do
+
+  resources :user
+  resources :question
+  resources :answer
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
