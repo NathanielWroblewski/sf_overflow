@@ -13,6 +13,7 @@ describe Vote do
     end
   end
 
+  context "for upvotes" do
 
 
 
