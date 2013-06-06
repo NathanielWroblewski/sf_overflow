@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def create
-    p params
     @user = User.create(params[:user])
-
+    session[:id] = @user.id
+    redirect_to @user
   end
 
   def new

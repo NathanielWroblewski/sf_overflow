@@ -23,11 +23,15 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    
+    @question = Question.find(params[:id])
+    @question.update_attributes(params[:question])
+    redirect_to @question
   end
 
   def destroy
     Question.destroy(params[:id])
+    @user = User.find(session[:id])
+    redirect_to @user
   end
 
 end
