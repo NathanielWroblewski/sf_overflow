@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(session[:id])
     @users_questions = Question.where(:user_id => @user.id)
+    @users_answers = Answer.where(:user_id => @user.id)
   end
 
   def update

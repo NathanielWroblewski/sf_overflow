@@ -2,7 +2,7 @@ SfOverflow::Application.routes.draw do
 
   resources :users, :except => :index
   resources :questions
-  resources :answers, :only => [:create, :new, :edit, :update, :destroy]
+  resources :answers, :only => [:create, :new, :edit, :update, :destroy, :show]
   resource :session, :only => [:create, :destroy]
 
   root :to => 'questions#index'
