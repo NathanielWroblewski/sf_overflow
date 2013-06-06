@@ -4,6 +4,7 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :answerable, :polymorphic => true
   has_many :answers, :as => :answerable
+  has_many :votes, :as => :votable
 
   validates :description, :presence => true
 end
