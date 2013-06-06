@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe 'User' do
-  # user = create(:user)
+  # user = build(:user)
   
   describe "sign-up" do
     context "successful sign-up" do
