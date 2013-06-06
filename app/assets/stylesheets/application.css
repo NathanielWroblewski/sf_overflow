@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-nav {
+ nav {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
@@ -32,7 +32,7 @@ nav ul li a {
 
 h1 {
   /*margin-top: 100px;*/
-  font-family: sans-serif;
+  font-family: sans-serif; white
 }
 
 .container {
@@ -40,6 +40,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
+  font-family: sans-serif;
 }
 
 .login_form {
@@ -47,6 +48,25 @@ h1 {
   width: 200px;
   padding: 20px;
   font-family: sans-serif;
+}
+
+.profile_questions {
+  margin-top: 100px;
+}
+
+.submit_question {
+  margin-top: 30px;
+  background-color: green;
+  width: 135px;
+  padding: 5px;
+}
+
+.submit_question a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
 }
 
 /** {
