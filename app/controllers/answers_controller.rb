@@ -1,13 +1,15 @@
 class AnswersController < ApplicationController
 
-  def index
-    
-  end
-
   def create
-   @answer = Answer.create(params[:answer])
-   @answer.update_attributes(:user_id => session[:id])
-   redirect_to @answer
+    @answer = Answer.create(params[:answer])
+    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i)
+    if params[:answer][:answerable_type] == "Question"
+      @question = Question.find(params[:answer][:answerable_id].to_i)
+      redirect_to @question
+    elsif params[:answer][:answerable_type] == "Answer"
+      #implement later
+    else
+    end
   end
 
   def new
@@ -15,10 +17,6 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find(params[:id])
-  end
-
-  def show
     @answer = Answer.find(params[:id])
   end
 

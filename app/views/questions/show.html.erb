@@ -1,2 +1,6 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.description %></p>
+<p><%= render '/answers/answer_form', :locals => [@answer, @question] %></p>
+<% @answers.each do |answer| %>
+<p><%= answer.description %></p>
+<% end %>
