@@ -4,7 +4,7 @@ module VotesHelper
     votable_id = params[:answer_id] 
     if votable_id
       votable = Answer.find(votable_id)
-      q_id = votable.answerable_id
+      q_id = votable.question_id
     else
       votable_id = params[:question_id] 
       votable = Question.find(votable_id)
