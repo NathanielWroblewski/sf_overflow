@@ -12,7 +12,6 @@
  *= require_tree .
  */
 
-
 nav {
   margin-left: auto;
   margin-right: auto;
@@ -29,6 +28,7 @@ nav ul li a {
   text-decoration: none;
   color: black;
   padding-left: 15px;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -41,6 +41,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
+  font-family: sans-serif;
 }
 
 .login_form {
@@ -87,6 +88,10 @@ h1 {
 
 a {
   text-decoration: none;
+<<<<<<< HEAD
+=======
+  font-family: white;
+>>>>>>> master
 }
 
 /** {
