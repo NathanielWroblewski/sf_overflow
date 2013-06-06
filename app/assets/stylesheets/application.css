@@ -61,6 +61,11 @@ h1 {
   padding: 5px;
 }
 
+.question_form {
+  padding-top: 30px;
+  clear: both;
+}
+
 .submit_question a {
   color: white;
 }
@@ -72,4 +77,5 @@ a {
 /** {
   border: 1px solid gray;
 }
+
 */

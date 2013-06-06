@@ -1,7 +1,9 @@
-<%= form_for @question do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-  <%= form.submit %>
-<% end %>
+<div class="question_form">
+  <%= form_for @question do |form| %>
+    <p><%= form.label :title %>:</p>
+    <%= form.text_field :title %><br>
+    <p><%= form.label :description %>:</p>
+    <%= form.text_field :description %><br>
+    <p><%= form.submit %></p>
+  <% end %>
+</div>
