@@ -1,6 +1,11 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.description %></p>
-<p><%= render '/answers/answer_form', :locals => [@answer, @question] %></p>
+<p><%= render '/answers/answer_form', :answer => @answer, :question => @question %></p>
 <% @answers.each do |answer| %>
-<p><%= answer.description %></p>
+<div>
+  <span><%= answer.description %></span>
+  <span><%= button_to "Downvote", answer_downvote_path(answer) %> </span>
+  <span><%= button_to "Upvote", answer_upvote_path(answer) %> </span>
+  <span>upvote</span>
+</div>
 <% end %>
