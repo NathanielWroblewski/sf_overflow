@@ -20,6 +20,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = Answer.where(:answerable_type => "Question", :answerable_id => @question.id)
+    @answer = Answer.new
   end
 
   def update
