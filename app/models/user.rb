@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
   validates :username, :uniqueness => true
   validates :email, :presence => true
   validates :email, :uniqueness => true
+
+  def not_voted?(votable_type, votable_id)
+    !Vote.find_by_user_id_and_votable_type_and_votable_id(self.id, votable_type, votable_id)
+  end
   
 end

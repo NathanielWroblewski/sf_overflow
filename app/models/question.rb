@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :description, :presence => true
 
+  def sum_votes
+    Vote.where("votable_id = ? AND votable_type = 'Question'", self.id).sum('counter')
+  end
+
 end
