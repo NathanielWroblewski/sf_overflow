@@ -12,7 +12,11 @@
  *= require_tree .
  */
 
+<<<<<<< HEAD
 nav {
+=======
+ nav {
+>>>>>>> frontend
   margin-left: auto;
   margin-right: auto;
   width: 800px;
@@ -32,6 +36,7 @@ nav ul li a {
 
 h1 {
   /*margin-top: 100px;*/
+<<<<<<< HEAD
   font-family: sans-serif;
 }
 
@@ -47,6 +52,43 @@ h1 {
   width: 200px;
   padding: 20px;
   font-family: sans-serif;
+=======
+  font-family: sans-serif; white
+}
+
+.container {
+  /*margin-top: 50px;*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  font-family: sans-serif;
+}
+
+.login_form {
+  background-color: #cccccc;
+  width: 200px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.profile_questions {
+  margin-top: 100px;
+}
+
+.submit_question {
+  margin-top: 30px;
+  background-color: green;
+  width: 135px;
+  padding: 5px;
+}
+
+.submit_question a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+>>>>>>> frontend
 }
 
 /** {

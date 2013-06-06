@@ -6,6 +6,8 @@
     <% end %>
     <% if current_user %>
       <li><%= link_to "Logout", session_path, :method => :delete %></li>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Home", questions_path %></li>
     <% end %>
   </ul>
 </nav>
