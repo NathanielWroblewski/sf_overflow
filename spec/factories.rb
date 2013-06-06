@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, :aliases => [:commenter] do
     sequence(:username) { |n| "Me#{n}"}
     password            "1234"
     sequence(:email)    { "#{username}@#{username}.com" }
@@ -20,6 +20,12 @@ FactoryGirl.define do
   factory :question do
     description "Blah blah blah"
     commenter
+  end
+
+  factory :answer do
+    description { Faker::Lorem.paragraph }
+    user
+    question
   end
 end
 

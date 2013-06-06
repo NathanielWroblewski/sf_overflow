@@ -1,6 +1,15 @@
 
 
+<<<<<<< HEAD
+<% @users_questions.each do |question| %>
+  <p><%= link_to question.title, question %> 
+     <%= link_to "Edit", edit_question_path(question) %> 
+     <%= link_to "Delete", question_path(question), :method => :delete %>
+  </p>
+<% end %>
+=======
 <h2>Welcome, <%= @user.username %></h2>
+>>>>>>> frontend
 
 <div class="profile_questions">
   <% @users_questions.each do |question| %>
