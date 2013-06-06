@@ -21,4 +21,9 @@ FactoryGirl.define do
     association :answerable, :factory => :question 
     association :user
   end
+
+  factory :vote do
+    counter { 1 }
+    
+  end
 end
