@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Answer do
   let(:description) {"hello"}
   let(:answer) { FactoryGirl.create(:answer) }
-  # let(:user) { answer.user }
+  let(:user) { answer.user }
   
   context "#initialize" do
 
