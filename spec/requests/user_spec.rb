@@ -2,13 +2,18 @@ require 'spec_helper'
 
 
 describe 'User' do
-  let (:user) { git addcreate(:user) }
+  let (:user) { create(:user) }
   
   describe "sign-up" do
     context "successful sign-up" do
       it "should route to profile page" do
-        visit '/'
+        visit root_path
         click_link('Signup')
+        fill_in('user_username', :with => "test")
+        fill_in('user_email', :with => "test@email.com")
+        fill_in('user_password', :with => "1234")
+        click_button('Create User')
+        current_path.should == user_path(user)
       end
     end
 
@@ -20,11 +25,12 @@ describe 'User' do
 
   describe "sign-in" do
     context "successful sign-in" do
-      it "should route to profile page", :js => true do
-        visit '/'
+      it "should route to profile page" do
+        visit root_path
         fill_in('email', :with => user.email)
         fill_in('password', :with => user.password)
         click_button('Submit')
+        current_path.should == user_path(user)
       end
     end
 

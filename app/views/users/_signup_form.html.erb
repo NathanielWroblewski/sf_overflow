@@ -1,11 +1,11 @@
 <div class="signup_form">
   <%= form_for @user do |form| %>
     <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= h form.text_field :username %>
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= h form.text_field :email %>
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= h form.password_field :password %>
     <%= form.submit %>
   <% end %>
 </div>

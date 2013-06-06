@@ -1,13 +1,25 @@
-<p>User Profile</p>
+<h2>Welcome, <%= @user.username %></h2>
 
-<h1><%= @user.username %></h1>
+<div class="submit_question">
+  <%= link_to "Submit a Question", new_question_path %>
+</div>
 
-<% @users_questions.each do |question| %>
-  <p><%= link_to question.title, question %> 
-     <%= link_to "Edit", edit_question_path(question) %> 
-     <%= link_to "Delete", question_path(question), :method => :delete %>
-  </p>
-<% end %>
+<h3>Your Questions</h3>
+<div class="profile_questions">
+  <% @users_questions.each do |question| %>
+    <%= link_to question.title, question %> 
+    <%= link_to "Edit", edit_question_path(question) %>
+    <%= link_to "Delete", question_path(question), :method => :delete %>
+    <br><br>
+  <% end %>
+</div>
 
-<%= link_to "Submit a Question", new_question_path %>
-
+<h3>Your Answers</h3>
+<div class="profile_answers">
+  <% @users_answers.each do |answer| %>
+    <%= link_to answer.description, answer %> 
+    <%= link_to "Edit", edit_answer_path(answer) %>
+    <%= link_to "Delete", answer_path(answer), :method => :delete %>
+    <br><br>
+  <% end %>
+</div>

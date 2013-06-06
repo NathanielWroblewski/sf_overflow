@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    
+    @question = Question.all
   end
 
   def create
@@ -20,14 +20,20 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = Answer.where(:answerable_type => "Question", :answerable_id => @question.id)
+    @answer = Answer.new
   end
 
   def update
-    
+    @question = Question.find(params[:id])
+    @question.update_attributes(params[:question])
+    redirect_to @question
   end
 
   def destroy
     Question.destroy(params[:id])
+    @user = User.find(session[:id])
+    redirect_to @user
   end
 
 end

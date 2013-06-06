@@ -45,6 +45,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
+  gem 'debugger'
 end
 
 group :development do
@@ -56,4 +57,6 @@ group :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
