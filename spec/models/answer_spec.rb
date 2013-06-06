@@ -1,15 +1,24 @@
 require 'spec_helper'
 
 describe Answer do
-  let(:answer) { FactoryGirl.create :answer }
+  let(:description) {"hello"}
+  let(:answer) { FactoryGirl.create(:user) }
+  let(:user) { answer.user }
+  context "#initialize" do
 
+    describe "invalid input" do
+      it ""
+      it ""
+    end
+    describe "vali"
+  end
   context 'reply to question'
+
   it "should have a parent answer id"
   it "should have a description" 
-  it "should belong to a user"
 
   describe ".children"
-  it "should deisplay child posts"
+  it "should display child posts"
 
   context "when logged in"
   it "should redirect to login page"
@@ -18,13 +27,41 @@ describe Answer do
   it "should post the comment"
 
   # describe "GET /answer" do
-  #   it "displays answers" do
+  #   it "displays answer" do
   #     Answer.create!(:description "hello there!")
   #     visit task_path
   #     response.body.should include("hello there!")
   #   end
   # end
 
+
+
+# let(:account) {Account.new(acct_number, starting_balance)}
+#   let(:acct_number) { '1123456789' }
+#   let(:starting_balance) { 100 }
+
+  describe "#initialize" do
+
+    context "with valid input" do
+      it "creates a question with user_id" do
+        answer.user_id.should eq(user_id)
+      end
+
+      it 
+    end
+
+    
+  end
+  context "user signup" do
+    desribe "valid input" do
+      it "errors show on the sinpup page" do
+        pending
+      end
+    end
+    describe "invalid input" do
+      it "redirect user to the"
+    end
+  end
   describe "POST /answer" do
     it "creates a answer" do
       post_via_redirect question_path, :answer => { :description => "mow lawn" }
@@ -33,20 +70,20 @@ describe Answer do
     end
   end 
 
-#   describe '#destroy' do
+  describe '#destroy' do
 
-#     context 'when resource is found' do
-#       it 'responds with 200'
-#       it 'shows the resource'
-#     end
+    context 'when answer is found' do
+      it 'responds with 200'
+      it 'shows the answer'
+    end
 
-#     context 'when resource is not found' do
-#       it 'responds with 404'
-#     end
+    context 'when answer is not found' do
+      it 'responds with 404'
+    end
 
-#     context 'when resource is not owned' do
-#       it 'responds with 404'
-#     end
-#   end
-# #database_cleaner
+    context 'when answer is not owned' do
+      it 'responds with 404'
+    end
+  end
+#database_cleaner
 end
