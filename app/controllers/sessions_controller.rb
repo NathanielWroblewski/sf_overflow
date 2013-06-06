@@ -12,5 +12,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.clear
+    redirect_to questions_path
+  end
+
 
 end
