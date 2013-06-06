@@ -5,21 +5,14 @@ FactoryGirl.define do
     sequence(:email)    { "#{username}@#{username}.com" } 
   end
 
-  factory :comment do
-    title "Moving to the bay"
+  factory :question do
     description "Blah blah blah"
     author
   end
 
-  factory :question do
-    description "Blah blah blah"
-    commenter
-  end
-
   factory :answer do
     description { Faker::Lorem.paragraph }
-    user
-    question
+    commenter
   end
 end
 
