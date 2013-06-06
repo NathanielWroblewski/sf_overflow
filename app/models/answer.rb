@@ -6,5 +6,4 @@ class Answer < ActiveRecord::Base
   has_many :answers, :as => :answerable
 
   validates :description, :presence => true
-
 end
