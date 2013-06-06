@@ -1,18 +1,22 @@
 class VotesController < ApplicationController
   include ApplicationHelper
+  include VotesHelper
 
 
-  def answer_upvote
-    answer = Answer.find(params[:answer_id])
-    answer.votes << Vote.create(user_id: current_user.id, counter: 1)
-    question = Question.find(answer.answerable_id)
-    redirect_to question_path(question)
+  def upvote
+    voter(params, 1)
   end
 
-  def answer_downvote
-    answer = Answer.find(params[:answer_id])
-    answer.votes << Vote.create(user_id: current_user.id, counter: -1)
-    question = Question.find(answer.answerable_id)
+  def downvote
+    voter(params, -1)
+  end
+
+  private
+
+  def voter(params, score)
+    votable, q_id = votable_id_find(params)[0], votable_id_find(params)[1]
+    votable.votes << Vote.create(user_id: current_user.id, counter: score)
+    question = Question.find(q_id)
     redirect_to question_path(question)
   end
 end
