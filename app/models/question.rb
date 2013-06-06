@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
 
   belongs_to :user
   has_many :answers, :as => :answerable
+  has_many :votes, :as => :votable
 
   validates :title, :presence => true
   validates :title, :uniqueness => true
