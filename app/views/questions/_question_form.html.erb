@@ -1,9 +1,9 @@
 <div class="question_form">
   <%= form_for @question do |form| %>
     <p><%= form.label :title %>:</p>
-    <%= form.text_field :title %><br>
+    <%= h form.text_field :title %><br>
     <p><%= form.label :description %>:</p>
-    <%= form.text_field :description %><br>
+    <%= h form.text_field :description %><br>
     <p><%= form.submit %></p>
   <% end %>
 </div>
