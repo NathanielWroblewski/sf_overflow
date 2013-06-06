@@ -18,6 +18,23 @@ class AnswersController < ApplicationController
 
   def edit
     @answer = Answer.find(params[:id])
+    if @answer.answerable_type == "Question"
+      @question = Question.find(@answer.answerable_id)
+    elsif @answer.answerable_type == "Answer"
+      #this is still gonna suck
+    else
+    end
+  end
+
+  def show
+    @answer = Answer.find(params[:id])
+    if @answer.answerable_type == "Question"
+      @question = Question.find(@answer.answerable_id)
+      redirect_to @question
+    elsif @answer.answerable_type == "Answer"
+      #this is gonna suck
+    else
+    end
   end
 
   def update
