@@ -52,11 +52,11 @@ describe 'User' do
 
   describe "view a question" do #AHHHHHHHHH SO MANY TESTS AND CONTEXTS!!!!!!!
     context "signed-in" do
-      it "should"
+      it "should allow user add an answer"
     end
 
     context "NOT signed-in" do
-      it "should not allow"
+      it "should not allow user to add an answer"
     end
   end
 end
