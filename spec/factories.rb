@@ -6,13 +6,14 @@ FactoryGirl.define do
   end
 
   factory :question do
+    title "Moving to the bay"
     description "Blah blah blah"
     author
   end
 
   factory :answer do
     description { Faker::Lorem.paragraph }
+    # answerable_type
     commenter
   end
 end
-
