@@ -2,8 +2,8 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.create(params[:answer])
-    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i)
-    polymorphic_validation(params)
+    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i, :question_id => params[:answer][:question_id])
+    @question = Question.find(@answer.question_id)
     redirect_to @question
   end
 
@@ -13,12 +13,12 @@ class AnswersController < ApplicationController
 
   def edit
     @answer = Answer.find(params[:id])
-    polymorphic_validation(params)
+    @question = Question.find(@answer.question_id)
   end
 
   def show
     @answer = Answer.find(params[:id])
-    polymorphic_validation(params)
+    @question = Question.find(@answer.question_id)
     redirect_to @question
   end
 

@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :description, :user_id, :answerable_type, :answerable_id
+  attr_accessible :description, :user_id, :answerable_type, :answerable_id, :question_id
 
   belongs_to :user
   belongs_to :answerable, :polymorphic => true
