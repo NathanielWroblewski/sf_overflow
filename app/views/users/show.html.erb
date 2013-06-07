@@ -4,22 +4,5 @@
   <%= link_to "Submit a Question", new_question_path %>
 </div>
 
-<h3>Your Questions</h3>
-<div class="profile_questions">
-  <% @users_questions.each do |question| %>
-    <%= link_to question.title, question %> 
-    <%= link_to "Edit", edit_question_path(question) %>
-    <%= link_to "Delete", question_path(question), :method => :delete %>
-    <br><br>
-  <% end %>
-</div>
-
-<h3>Your Answers</h3>
-<div class="profile_answers">
-  <% @users_answers.each do |answer| %>
-    <%= link_to answer.description, answer %> 
-    <%= link_to "Edit", edit_answer_path(answer) %>
-    <%= link_to "Delete", answer_path(answer), :method => :delete %>
-    <br><br>
-  <% end %>
-</div>
+<%= render '/questions/profile_questions', :users_questions => @users_questions %>
+<%= render '/answers/profile_answers', :users_answers => @users_answers %>

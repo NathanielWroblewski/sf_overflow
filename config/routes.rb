@@ -1,11 +1,13 @@
 SfOverflow::Application.routes.draw do
+  root :to => 'questions#index'
 
   resources :users, :except => :index
-  resources :questions
-  resources :answers, :only => [:create, :new, :edit, :update, :destroy, :show]
   resource :session, :only => [:create, :destroy]
-
-  root :to => 'questions#index'
+  
+  resources :questions, :answers do
+    post '/upvote' => 'votes#upvote'
+    post '/downvote' => 'votes#downvote'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
