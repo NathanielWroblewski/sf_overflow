@@ -44,8 +44,14 @@ describe Vote do
 
     it "should increase vote count" do
       expect {
-        find(:xpath, '/html/body/div/div[2]/span[3]/form/div/input[1]').click
+        first('#answer-form').click_button('Upvote')
       }.to change{Answer.last.sum_votes}.from(0).to(1)
+    end
+
+    it "should decrease vote count" do
+      expect {
+        first('#answer-form').click_button('Downvote')
+      }.to change{Answer.last.sum_votes}.from(0).to(-1)
     end
   end
 end
