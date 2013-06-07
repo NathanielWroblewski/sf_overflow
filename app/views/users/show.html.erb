@@ -3,6 +3,11 @@
 <div class="submit_question">
   <%= link_to "Submit a Question", new_question_path %>
 </div>
+<div class="new_question_form">
+  <%= render '/questions/question_form', :locals => @question %>
+</div>
 
 <%= render '/questions/profile_questions', :users_questions => @users_questions %>
 <%= render '/answers/profile_answers', :users_answers => @users_answers %>
+
+
