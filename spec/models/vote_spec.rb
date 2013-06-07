@@ -29,5 +29,9 @@ describe Vote do
     end
   end
 
+  context 'vote on answer' do
+    
 
+  end
 end
+
