@@ -9,7 +9,7 @@ describe Answer do
 
     context "with valid input" do
       it "creates a question with user_id" do
-        answer.user_id.should eq(user_id)
+        answer.user_id.should eq(user.id)
       end
     end
   end

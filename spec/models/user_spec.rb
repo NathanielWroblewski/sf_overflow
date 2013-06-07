@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe "User" do
-  #Build spec for the user model
+  
+  describe "email" do
+    pending
+  end
+
+  describe "username" do
+    pending
+  end
+
+
 end
