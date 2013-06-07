@@ -1,0 +1,9 @@
+<h3>Your Answers</h3>
+<div class="profile_answers">
+  <% users_answers.each do |answer| %>
+    <%= link_to answer.description, answer %> 
+    <%= link_to "Edit", edit_answer_path(answer) %>
+    <%= link_to "Delete", answer_path(answer), :method => :delete %>
+    <br><br>
+  <% end %>
+</div>
