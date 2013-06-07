@@ -1,6 +1,6 @@
-<h1><%= @question.title %></h1>
-<p><%= @question.description %></p>
-<p><%= render '/answers/answer_form', :locals => [@answer, @question] %></p>
-<% @answers.each do |answer| %>
-<p><%= answer.description %></p>
-<% end %>
+<%= render 'question_info', :question => @question %>
+<%= render 'question_voting', :question => @question %>
+
+<%= render '/answers/answer_form', :answer => @answer, :answerable => @question, :question => @question %>
+
+<%= render '/answers/display_all_answers', :answers => @answers, :question => @question %>

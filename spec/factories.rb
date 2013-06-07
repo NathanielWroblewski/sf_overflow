@@ -10,12 +10,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :comment do
-    title { Faker::Lorem.sentence }
-    description { Faker::Lorem.paragraph }
-    author
-  end
-
   factory :question do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
@@ -23,10 +17,20 @@ FactoryGirl.define do
   end
 
   factory :answer do
-
     description { Faker::Lorem.paragraph }
     association :answerable, :factory => :question 
     association :user
   end
-end
 
+  factory :vote_question do
+    counter 1 
+    association :votable, :factory => :question
+    association :user
+  end
+
+  factory :vote_answer do
+    counter 1 
+    association :votable, :factory => :answer
+    association :user
+  end
+end

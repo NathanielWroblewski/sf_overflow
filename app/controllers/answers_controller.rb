@@ -2,14 +2,9 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.create(params[:answer])
-    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i)
-    if params[:answer][:answerable_type] == "Question"
-      @question = Question.find(params[:answer][:answerable_id].to_i)
-      redirect_to @question
-    elsif params[:answer][:answerable_type] == "Answer"
-      #implement later
-    else
-    end
+    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i, :question_id => params[:answer][:question_id])
+    @question = Question.find(@answer.question_id)
+    redirect_to @question
   end
 
   def new
@@ -18,23 +13,13 @@ class AnswersController < ApplicationController
 
   def edit
     @answer = Answer.find(params[:id])
-    if @answer.answerable_type == "Question"
-      @question = Question.find(@answer.answerable_id)
-    elsif @answer.answerable_type == "Answer"
-      #this is still gonna suck
-    else
-    end
+    @question = Question.find(@answer.question_id)
   end
 
   def show
     @answer = Answer.find(params[:id])
-    if @answer.answerable_type == "Question"
-      @question = Question.find(@answer.answerable_id)
-      redirect_to @question
-    elsif @answer.answerable_type == "Answer"
-      #this is gonna suck
-    else
-    end
+    @question = Question.find(@answer.question_id)
+    redirect_to @question
   end
 
   def update

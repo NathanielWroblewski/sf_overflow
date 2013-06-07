@@ -3,9 +3,14 @@ class Question < ActiveRecord::Base
 
   belongs_to :user
   has_many :answers, :as => :answerable
+  has_many :votes, :as => :votable
 
   validates :title, :presence => true
   validates :title, :uniqueness => true
   validates :description, :presence => true
+
+  def sum_votes
+    Vote.where("votable_id = ? AND votable_type = 'Question'", self.id).sum('counter')
+  end
 
 end
