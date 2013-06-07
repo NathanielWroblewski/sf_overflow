@@ -1,0 +1,6 @@
+<span class="answer-vote">
+  Comment Votes: 
+  <%= answer.sum_votes %>
+  <%= button_to "Upvote", answer_upvote_path(answer) %>
+  <%= button_to "Downvote", answer_downvote_path(answer) %>
+</span>

@@ -1,6 +1,6 @@
 <div class="answer_form">
   <%= form_for Answer.create do |form| %>
-    <p><%= form.label :description %>:</p>
+    <p><%= form.label :comment %>:</p>
     <%= h form.text_field :description %><br>
     <%= form.hidden_field :answerable_type, :value => answerable.class %>
     <%= form.hidden_field :answerable_id, :value => answerable.id %>

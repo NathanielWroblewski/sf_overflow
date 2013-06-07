@@ -1,0 +1,4 @@
+<% answers.each do |answer| %>
+    <%= render '/answers/answer_votes', :answer => answer %>
+    <%= render '/answers/answer_description', :answer => answer, :question => question %>
+<% end %>
