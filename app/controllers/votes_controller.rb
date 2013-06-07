@@ -1,6 +1,5 @@
-require 'vote_controller_helper'
 class VotesController < ApplicationController
-  include VotesHelper
+
 
   def upvote
     votable_type = votable_type(params)

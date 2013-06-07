@@ -1,8 +1,9 @@
-require 'authentication'
+require 'vote_controller_helper'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include Authentication
+  include VotesHelper
   
   def polymorphic_validation(params)
     if params[:answer][:answerable_type] == "Question"
@@ -12,6 +13,8 @@ class ApplicationController < ActionController::Base
     else
     end
   end
+
+  helper_method :current_user
 
 end
 
