@@ -1,11 +1,13 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.description %></p>
+<span><%= @question.sum_votes %></span>
 <span><%= button_to "Upvote", question_upvote_path(@question) %> </span>
 <span><%= button_to "Downvote", question_downvote_path(@question) %> </span>
 <p><%= render '/answers/answer_form', :answer => @answer, :answerable => @question, :question => @question %></p>
 <% @answers.each do |answer| %>
 <div>
   <span><%= answer.description %></span>
+<span><%= answer.sum_votes %></span>
   <span><%= button_to "Upvote", answer_upvote_path(answer) %> 
   </span>
   <span><%= button_to "Downvote", answer_downvote_path(answer) %> </span>
