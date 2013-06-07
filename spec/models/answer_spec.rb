@@ -3,15 +3,29 @@ require 'spec_helper'
 describe Answer do
   let(:description) {"hello"}
   let(:answer) { FactoryGirl.create(:answer) }
-  # let(:user) { answer.user }
   
-  context "#initialize" do
 
-    context "with valid input" do
-      it "creates a question with user_id" do
-        answer.user_id.should eq(user_id)
+  context "#create" do
+
+    describe "with valid input" do
+      it "answer belongs to a user" do
+        answer.user_id.should eq(answer.user.id)
       end
+   
+      it "answer has a description" do
+        expect(answer.description).to eq(answer.description)
+      end
+
+    describe "without valid input" 
+      it "raises error without a description"
+      it "raises error without a user"
+      it "raises error with answerable type"
+      it "raises error with answerable id"
+
     end
+
+
+
   end
 
 
@@ -27,7 +41,7 @@ describe Answer do
 #   end
 #   describe "POST /answer" do
 #     it "creates a answer" do
-#       post_via_redirect question_path, :answer => { :description => "mow lawn" }
+#       post_via_redirect answer_path, :answer => { :description => "mow lawn" }
 #       response.body.should include("mow lawn")
 #       #need to go through form! Use capybara
 #     end
