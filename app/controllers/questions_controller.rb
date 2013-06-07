@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
-    @question = Question.all
+    @questions = Question.all
     @question = Question.new
     @user = User.new
   end
