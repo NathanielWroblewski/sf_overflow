@@ -3,5 +3,6 @@ $(document).ready(function() {
     e.preventDefault();
     $(".new_question_form").slideToggle();
   });
+  $(".profile_questions")
 });
 

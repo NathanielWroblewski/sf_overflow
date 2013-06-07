@@ -3,18 +3,9 @@
 <%= render "users/loginform" %>
 <%= render "users/signup_form" %>
 
-<div class="question_display">
+<ul class="question_display">
   <% @questions.each do |question| %>
-    <p><%= link_to question.title, question %></p>
+    <li><p><%= link_to question.title, question %></p></li>
   <% end %>
-</div>
+</ul>
 
-<div class="question_form">
-  <%= form_for @question, :remote => true do |form| %>
-    <%= form.label :title %>
-    <%= h form.text_field :title %>
-    <%= form.label :description %>
-    <%= h form.text_field :description %>
-    <%= form.submit %>
-  <% end %>
-</div>
