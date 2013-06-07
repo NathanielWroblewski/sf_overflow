@@ -25,10 +25,12 @@ FactoryGirl.define do
   factory :vote_question do
     counter 1 
     association :votable, :factory => :question
+    association :user
   end
 
   factory :vote_answer do
     counter 1 
     association :votable, :factory => :answer
+    association :user
   end
 end
