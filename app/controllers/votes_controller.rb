@@ -1,5 +1,5 @@
+require 'vote_controller_helper'
 class VotesController < ApplicationController
-  include ApplicationHelper
   include VotesHelper
 
   def upvote
