@@ -1,34 +1,44 @@
 require 'spec_helper'
 
 describe Answer do
-  let(:description) {"hello"}
-  let(:answer) { FactoryGirl.create(:answer) }
-  context "#create" do
-
-    describe "with valid input" do
-      it "answer belongs to a user" do
-        answer.user_id.should eq(answer.user.id)
-      end
-
-      it "answer has a description" do
-        expect(answer.description).to eq(answer.description)
-
-        context "with valid input" do
-          it "creates a question with user_id" do
-            answer.user_id.should eq(user.id)
-          end
-
-          describe "without valid input" 
-          it "raises error without a description"
-          it "raises error without a user"
-          it "raises error with answerable type"
-          it "raises error with answerable id"
-
-        end
 
 
+  it { should belong_to (:user) } 
+  it { should belong_to (:answerable) }
+  it { should have_many (:answers) }
+  it { should have_many (:votes) }
 
-      end
+  it { should validate_presence_of(:description) }
+
+
+  # let(:description) {"hello"}
+  # let(:answer) { FactoryGirl.create(:answer) }
+  # context "#create" do
+
+  #   describe "with valid input" do
+  #     it "answer belongs to a user" do
+  #       answer.user_id.should eq(answer.user.id)
+  #     end
+
+  #     it "answer has a description" do
+  #       expect(answer.description).to eq(answer.description)
+
+  #       context "with valid input" do
+  #         it "creates a question with user_id" do
+  #           answer.user_id.should eq(user.id)
+  #         end
+
+  #         describe "without valid input" 
+  #         it "raises error without a description"
+  #         it "raises error without a user"
+  #         it "raises error with answerable type"
+  #         it "raises error with answerable id"
+
+  #       end
+
+
+
+  #     end
 
 
 #   context "user signup" do
