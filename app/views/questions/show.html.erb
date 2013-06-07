@@ -1,19 +1,15 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.description %></p>
-<% if current_user.not_voted?("Question", @question.id) %>
 <span><%= button_to "Upvote", question_upvote_path(@question) %> </span>
 <span><%= button_to "Downvote", question_downvote_path(@question) %> </span>
-<% end %>
 <p><%= render '/answers/answer_form', :answer => @answer, :answerable => @question, :question => @question %></p>
 <% @answers.each do |answer| %>
 <div>
   <span><%= answer.description %></span>
-<% if current_user.not_voted?("Answer", answer.id) %>  
   <span><%= button_to "Upvote", answer_upvote_path(answer) %> 
   </span>
   <span><%= button_to "Downvote", answer_downvote_path(answer) %> </span>
   <span>upvote</span>
-  <% end %>
   <%= render '/answers/answer_form', :answer => answer, :answerable => answer, :question => @question %>
-</div>
+  </div>
 <% end %>
