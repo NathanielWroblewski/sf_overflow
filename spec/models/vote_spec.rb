@@ -5,6 +5,8 @@ describe Vote do
   let (:user) { create(:user)}
   let (:question) { create(:question) }
   let (:vote) { create(:vote_question) }
+  let (:answer) { create(:answer) }
+  let (:vote) { create(:vote_answer) }
 
   context "vote on question" do
     before do
@@ -30,7 +32,28 @@ describe Vote do
   end
 
   context 'vote on answer' do
-    
+    before do
+      visit root_path
+      fill_in('email', :with => user.email)
+      fill_in('password', :with => user.password)
+      click_button('Submit')
+      visit question_path(question)
+      fill_in('answer[description]', :with => answer.description)
+      click_button('Create Answer')
+    end
+
+    it "should increase vote count", :js => true do
+      sleep 2
+      answer
+      expect {
+
+        find(:xpath, '/html/body/div/div[2]/span[2]/form/div/input[1]').click
+
+        # debugger
+      }.to change{answer.sum_votes}.from(0).to(1)
+        p 'yeahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh'
+        p answer.sum_votes
+    end
 
   end
 end
