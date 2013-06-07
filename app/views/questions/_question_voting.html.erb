@@ -1,0 +1,10 @@
+<span id="question-vote">
+  Votes: <%= question.sum_votes %>
+</span>  
+
+<span class="question-button-up">
+  <%= button_to "Upvote", question_upvote_path(question) %>
+</span>
+<span class="question-button-down">
+  <%= button_to "Downvote", question_downvote_path(question) %>
+</span>

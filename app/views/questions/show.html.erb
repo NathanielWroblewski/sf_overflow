@@ -1,17 +1,6 @@
-<h1><%= @question.title %></h1>
-<p><%= @question.description %></p>
-<span id="question-vote"><%= @question.sum_votes %></span>
-<span class="question-button-up"><%= button_to "Upvote", question_upvote_path(@question) %> </span>
-<span class="question-button-down"><%= button_to "Downvote", question_downvote_path(@question) %> </span>
-<p><%= render '/answers/answer_form', :answer => @answer, :answerable => @question, :question => @question %></p>
-<% @answers.each do |answer| %>
-<div class="answer">
-  <span><%= answer.description %></span>
-<span class="answer-vote"><%= answer.sum_votes %></span>
-  <span><%= button_to "Upvote", answer_upvote_path(answer) %> 
-  </span>
-  <span><%= button_to "Downvote", answer_downvote_path(answer) %> </span>
-  <span>upvote</span>
-  <%= render '/answers/answer_form', :answer => answer, :answerable => answer, :question => @question %>
-</div>
-<% end %>
+<%= render 'question_info', :question => @question %>
+<%= render 'question_voting', :question => @question %>
+
+<%= render '/answers/answer_form', :answer => @answer, :answerable => @question, :question => @question %>
+
+<%= render '/answers/display_all_answers', :answers => @answers, :question => @question %>
