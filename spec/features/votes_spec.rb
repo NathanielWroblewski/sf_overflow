@@ -14,20 +14,47 @@ describe Vote do
       fill_in('email', :with => user.email)
       fill_in('password', :with => user.password)
       click_button('Submit')
+      visit question_path(question)
     end
 
     it "should increase vote count" do
-      visit question_path(question)
       expect {
         click_button('Upvote')
       }.to change{question.sum_votes}.from(0).to(1)
     end
 
     it "should decrease vote count" do
-      visit question_path(question)
       expect {
         click_button('Downvote')
       }.to change{question.sum_votes}.from(0).to(-1)
+    end
+
+    it "twice upvote should leave the count to where it was" do
+      click_button('Upvote')
+      page.find("#question-vote").should have_content("1")
+      click_button('Upvote')
+      page.find("#question-vote").should have_content("0")
+    end
+
+    it "twice should leave the count to where it was" do
+      click_button('Downvote')
+      page.find("#question-vote").should have_content("-1")
+      click_button('Downvote')
+      page.find("#question-vote").should have_content("0")
+    end
+
+    it "upvote followed by downvote should leave the count to where it was" do
+      click_button('Upvote')
+      page.find("#question-vote").should have_content("1")
+      click_button('Downvote')
+      page.find("#question-vote").should have_content("0")
+    end
+
+    it "downvote followed by downvote should leave the count to where it was" do
+      click_button('Downvote')
+      page.find("#question-vote").should have_content("-1")
+      click_button('Upvote')
+      page.find("#question-vote").should have_content("0")
     end
   end
 
@@ -43,9 +70,41 @@ describe Vote do
     end
 
     it "should increase vote count" do
-      expect {
-        first('#answer-form').click_button('Upvote')
-      }.to change{Answer.last.sum_votes}.from(0).to(1)
+      page.find(".answer").click_button('Upvote')
+      page.find(".answer-vote").should have_content("1")
+    end
+
+    it "should decrease vote count" do
+      page.find(".answer").click_button('Downvote')
+      page.find(".answer-vote").should have_content("-1")
+    end
+
+    it "twice upvote should leave the count to where it was" do
+      page.find(".answer").click_button('Upvote')
+      page.find(".answer-vote").should have_content("1")
+      page.find(".answer").click_button('Upvote')
+      page.find(".answer-vote").should have_content("0")
+    end
+
+    it "twice should leave the count to where it was" do
+      page.find(".answer").click_button('Downvote')
+      page.find(".answer-vote").should have_content("-1")
+      page.find(".answer").click_button('Downvote')
+      page.find(".answer-vote").should have_content("0")
+    end
+
+    it "upvote followed by downvote should leave the count to where it was" do
+      page.find(".answer").click_button('Upvote')
+      page.find(".answer-vote").should have_content("1")
+      page.find(".answer").click_button('Downvote')
+      page.find(".answer-vote").should have_content("0")
+    end
+
+    it "downvote followed by downvote should leave the count to where it was" do
+      page.find(".answer").click_button('Downvote')
+      page.find(".answer-vote").should have_content("-1")
+      page.find(".answer").click_button('Upvote')
+      page.find(".answer-vote").should have_content("0")
     end
 
     it "should decrease vote count" do
