@@ -13,7 +13,7 @@ describe 'User' do
         fill_in('user_email', :with => "test@email.com")
         fill_in('user_password', :with => "1234")
         click_button('Create User')
-        current_path.should == user_path(user)
+        current_path.should eq(user_path(User.last))
       end
     end
 
@@ -25,7 +25,7 @@ describe 'User' do
         fill_in('user_email', :with => user.email)
         fill_in('user_password', :with => "1234")
         click_button('Create User')
-        current_path.should == user_path(user)
+        current_path.should eq(user_path(user))
       end
       it "should return an error when user ommits a required field" do
 
@@ -40,7 +40,7 @@ describe 'User' do
         fill_in('email', :with => user.email)
         fill_in('password', :with => user.password)
         click_button('Submit')
-        current_path.should == user_path(user)
+        current_path.should eq(user_path(user))
       end
     end
 
