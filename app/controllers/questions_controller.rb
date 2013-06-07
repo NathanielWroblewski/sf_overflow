@@ -2,12 +2,14 @@ class QuestionsController < ApplicationController
 
   def index
     @question = Question.all
+    @question = Question.new
+    @user = User.new
   end
 
   def create
    @question = Question.create(params[:question])
    @question.update_attributes(:user_id => session[:id])
-   redirect_to @question
+   # redirect_to user_path(current_user)
   end
 
   def new
