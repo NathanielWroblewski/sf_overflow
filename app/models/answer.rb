@@ -11,4 +11,8 @@ class Answer < ActiveRecord::Base
   def sum_votes
     Vote.where("votable_id = ? AND votable_type = 'Answer'", self.id).sum('counter')
   end
+
+  def get_children
+    Answer.where(:answerable_id => self.id)
+  end
 end

@@ -2,5 +2,10 @@
   <div class="answer">
     <%= render '/answers/answer_votes', :answer => answer %>
     <%= render '/answers/answer_description', :answer => answer, :question => question %>
-  </div>
+  
+      <% answer.get_children.each do |child| %>
+          <%= render '/answers/answer_votes', :answer => child %>
+          <%= render '/answers/answer_description', :answer => child, :question => question %>
+    </div>
+      <% end %>
 <% end %>
