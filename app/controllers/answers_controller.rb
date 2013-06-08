@@ -2,7 +2,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.create(params[:answer])
-    @answer.update_attributes(:user_id => session[:id], :answerable_type => params[:answer][:answerable_type], :answerable_id => params[:answer][:answerable_id].to_i, :question_id => params[:answer][:question_id])
+    @answer.update_attributes(:user_id => session[:id], 
+                              :answerable_type => params[:answer][:answerable_type], 
+                              :answerable_id => params[:answer][:answerable_id].to_i, 
+                              :question_id => params[:answer][:question_id])
     @question = Question.find(@answer.question_id)
     redirect_to @question
   end
