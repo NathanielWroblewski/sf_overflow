@@ -1,8 +1,8 @@
 <div class="new_question_form">
   <%= form_for @question, :remote =>true do |form| %>
-    <%= form.label :title %>
+    <%= form.label :question_title, "Question Title:" %>
     <%= h form.text_field :title %>
-    <%= form.label :description %>
+    <%= form.label :question, "Question:" %>
     <%= h form.text_field :description %>
     <%= form.submit %>
   <% end %>
