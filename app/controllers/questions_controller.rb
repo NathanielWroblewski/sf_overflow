@@ -7,9 +7,16 @@ class QuestionsController < ApplicationController
   end
 
   def create
-   @question = Question.create(params[:question])
-   @question.update_attributes(:user_id => session[:id])
-   # redirect_to user_path(current_user)
+    @question = Question.new(params[:question])
+    @question.update_attributes(:user_id => session[:id])
+   @question.save
+      # render :json => render_to_string(:partial => 'question', :locals => { :question => @question}).to_json
+    
+
+   #  else
+   #    render :json => {}
+   # # redirect_to user_path(current_user)
+   #  end
   end
 
   def new

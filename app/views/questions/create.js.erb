@@ -1,2 +1,6 @@
 <% if @question.errors.present? %>
- $('ul.question'))
+  $('ul.profile_questions').before("<%= @question.errors.full_messages.join(', ')%>");
+<% else %>
+  $('ul.profile_questions').prepend("<%= j render "/questions/new_question", :question => @question %>");
+<%end%>
+

@@ -4,12 +4,8 @@
 <% end %>
 
 <ul class="profile_questions">
-  <% @users_questions.each do |question| %>
-    <li><%= link_to question.title, question %> 
-  <%= link_to "Edit", edit_question_path(question) %>
-  <%= link_to "Delete", question_path(question), :method => :delete %></li>
- <br>
-
-
+  <% @users_questions.reverse.each do |question| %>
+    <%= render '/questions/new_question', :question => question %>
   <% end %>
+
 </ul>
