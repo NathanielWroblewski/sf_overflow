@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if @user
       if @user.password = params["password"]
        session[:id] = @user.id
-       redirect_to root_path
+       redirect_to @user
       end
     else
        render :nothing => true, status: :bad_request
