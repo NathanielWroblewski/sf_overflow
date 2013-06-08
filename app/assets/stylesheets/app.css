@@ -68,9 +68,15 @@ h1 {
 .submit_question {
   margin-top: 30px;
   background-color: green;
-  width: 135px;
+  width: 120px;
   padding: 5px;
+  border-radius: 5px;
 }
+
+.submit_question:hover {
+  background-color: darkgreen;
+}
+
 
 .question_form {
   padding-top: 0px;
@@ -78,6 +84,12 @@ h1 {
 }
 
 .submit_question a {
+  color: white;
+  text-decoration: none;
+}
+
+.submit_question a:hover {
+  text-decoration: none;
   color: white;
 }
 
