@@ -1,9 +1,9 @@
 <div class="login_form">
   <%= form_tag session_path, :method => 'post' do %>
-    <%= label_tag(:email, "Email:") %><br>
-    <%= h text_field_tag(:email) %><br>
-    <%= label_tag(:password, "Password:") %><br>
-    <%= h password_field_tag(:password) %><br>
+    <%= h text_field_tag :name, nil, :placeholder => "username" %><br>
+    <%= h password_field_tag :name, nil, :placeholder => "password" %><br>
     <%= submit_tag("Submit") %>
   <% end %>
 </div>
+
+
