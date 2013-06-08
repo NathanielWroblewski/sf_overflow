@@ -40,6 +40,7 @@ h1 {
   padding-bottom: 0;
   font-family: sans-serif;
   display: none;
+  border-radius: 5px;
 }
 
 .signup_form {
@@ -50,6 +51,7 @@ h1 {
   padding-bottom: 0;
   font-family: sans-serif;
   display: none;
+  border-radius: 5px;
 }
 
 .profile_questions {
@@ -87,9 +89,9 @@ a {
   margin-top: 20px;
   padding: 10px;
   background-color: lightblue;
-  width: 600px;
+  width: 225px;
   display: none;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 /*.hidden {
