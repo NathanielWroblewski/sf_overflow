@@ -17,11 +17,12 @@ $(document).ready(function() {
   $('.submit_question a').on('click', function(e){
     e.preventDefault();
     $('.new_question_form').slideToggle();
+    $('#question_title, #question_description').val('');
   }); 
   $('form#new_question').on('ajax:success', appendQuestion);
 });
   function appendQuestion(event, data, status, xhr) {
-    
+    $('.new_question_form').slideToggle();
   }
 
 
