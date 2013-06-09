@@ -1,0 +1,9 @@
+%nav
+  %ul
+    - unless current_user
+      %li{:id=>"login_button"}= link_to "Login"
+      %li{:id=>"signup_button"}= link_to "Signup"
+    - if current_user
+      %li #{link_to "Logout", session_path, :method => :delete}
+      %li #{link_to "Profile", user_path(current_user)}
+      %li #{link_to "Home", questions_path}
