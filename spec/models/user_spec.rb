@@ -12,4 +12,17 @@ describe User do
   it { should validate_presence_of(:username) }
   it { should validate_uniqueness_of(:username) }
 
+
+  describe '#create' do
+    pending
+  end
+
+  describe "#new" do
+    pending
+  end
+
+  describe "#show" do
+    pending
+  end
+
 end
