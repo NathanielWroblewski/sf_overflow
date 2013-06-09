@@ -192,7 +192,6 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   faker
-  haml
   haml-rails
   jquery-rails
   pg
