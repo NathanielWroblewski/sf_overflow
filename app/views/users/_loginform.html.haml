@@ -3,9 +3,9 @@
 .login_form
   = form_tag session_path, :method => 'post' do
     = h text_field_tag :username, nil, :placeholder => "username"
-    br
+    %br
     = h password_field_tag :password, nil, :placeholder => "password" 
-    br
+    %br
     = submit_tag("Submit")
 
 

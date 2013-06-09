@@ -2,11 +2,11 @@
 .signup_form
   = form_for @user do |form|
     = h form.text_field :username, :required => true, :placeholder => :username
-    br
+    %br
     = h form.text_field :email, :required => true, :placeholder => :email 
-    br
+    %br
     = h form.password_field :password, :required => true, :placeholder => :password 
-    br
+    %br
     = form.submit
 
 /In ERB
