@@ -35,6 +35,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 gem 'debugger'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'rspec-rails'
