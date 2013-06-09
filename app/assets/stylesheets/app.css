@@ -26,16 +26,14 @@ nav ul li a:hover {
 
 
 h1 {
-  /*margin-top: 100px;*/
   font-family: sans-serif;
   margin-bottom: 0;
 }
 
 .container {
-  /*margin-top: 50px;*/
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 800px;
   font-family: sans-serif;
 }
 
@@ -75,7 +73,7 @@ h1 {
 .submit_question {
   margin-top: 30px;
   background-color: green;
-  width: 118px;
+  width: 134px;
   padding: 5px;
   border-radius: 5px;
 }
@@ -113,11 +111,18 @@ a {
   border-radius: 5px;
 }
 
-/*.hidden {
-  display: none;
-}*/
-/** {
-  border: 1px solid gray;
+.vote_count {
+  background-color: orange;
+  width: 53px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: 'Candal', sans-serif;
 }
 
+
+/**{
+  border: 1px solid gray;
+}
 */
+
