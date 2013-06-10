@@ -2,7 +2,7 @@ require 'csv'
 
 module ScraperHelper
 
-  def scrape
+  def scrape_trulia
     agent = Mechanize.new
 
     link_array = []
@@ -30,5 +30,27 @@ module ScraperHelper
         csv << array
       end
     end
+  end
+
+  def scrape_craigslist
+    agent = Mechanize.new
+
+    page = agent.get("http://sfbay.craigslist.org/apa/")
+    
+    titles   = []
+    prices   = []
+    links    = []
+    location = []
+
+    page.search('.pl a').each do |link|
+      titles << link.text
+      links << "http://sfbay.craigslist.org" + link.first[1]
+    end
+
+    page.search('.price').each do |price| 
+      prices << price.text
+    end
+
+    
   end
 end
