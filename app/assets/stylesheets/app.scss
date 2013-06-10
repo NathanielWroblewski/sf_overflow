@@ -1,5 +1,8 @@
 a {
   text-decoration: none;
+  &:visited{
+    // color: blue;
+}
 }
 
 nav {
@@ -12,6 +15,8 @@ nav {
     float: right;
     padding: 0;
     width: 400px;
+    margin-top: 12px;
+    margin-bottom: 0;
     li {
       display: inline;
       a {
@@ -28,7 +33,7 @@ nav {
 
 h1 {
   font-family: sans-serif;
-  margin-bottom: 0;
+  margin-bottom: 60px;
 }
 
 .container {
@@ -56,6 +61,7 @@ h1 {
   font-family: sans-serif;
   display: none;
   border-radius: 5px;
+  float: right;
 }
 
 .profile_questions {
