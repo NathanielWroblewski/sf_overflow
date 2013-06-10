@@ -1,7 +1,4 @@
-.login_form
-  = form_tag session_path, :method => 'post' do
-    = h text_field_tag :username, nil, :placeholder => "username"
-    %br
-    = h password_field_tag :password, nil, :placeholder => "password" 
-    %br
-    = submit_tag("Submit")
+= form_tag session_path, class: "login_form", method: 'post' do
+  = h text_field_tag :username, nil, :placeholder => "username"
+  = h password_field_tag :password, nil, :placeholder => "password"
+  = submit_tag("Login")
