@@ -1,29 +1,30 @@
+a {
+  text-decoration: none;
+}
 
 nav {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
   font-family: sans-serif;
+
+  ul {
+    float: right;
+    padding: 0;
+    width: 400px;
+    li {
+      display: inline;
+      a {
+        color: black;
+        padding-left: 15px;
+        font-family: sans-serif;
+        &:hover {
+          color: gray;
+        }
+      }
+    }
+  }
 }
-
-nav ul li {
-  float: right;
-  display: inline;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: black;
-  padding-left: 15px;
-  font-family: sans-serif;
-}
-
-nav ul li a:hover {
-  text-decoration: none;
-  color: gray;
-}
-
-
 
 h1 {
   font-family: sans-serif;
@@ -38,18 +39,16 @@ h1 {
 }
 
 .login_form {
-  float: right;
-  background-color: #cccccc;
-  width: 220px;
-  padding: 20px;
   padding-bottom: 0;
   font-family: sans-serif;
-  display: none;
   border-radius: 5px;
+  display: inline;
+  input {
+    display: inline;
+  }
 }
 
 .signup_form {
-  float: right;
   background-color: #cccccc;
   width: 220px;
   padding: 20px;
@@ -76,30 +75,22 @@ h1 {
   width: 134px;
   padding: 5px;
   border-radius: 5px;
-}
-
-.submit_question:hover {
-  background-color: darkgreen;
+  &:hover {
+    background-color: darkgreen;
+    a {
+      color: white;
+      &:hover {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
 }
 
 
 .question_form {
   padding-top: 0px;
   clear: both;
-}
-
-.submit_question a {
-  color: white;
-  text-decoration: none;
-}
-
-.submit_question a:hover {
-  text-decoration: none;
-  color: white;
-}
-
-a {
-  text-decoration: none;
 }
 
 .new_question_form {
