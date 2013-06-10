@@ -1,9 +1,8 @@
 %h1 Move SF
 
-= render "users/signup_form"
-
 #map-canvas{:style=>"width: 800px; height: 400px"}
 
-%ul{:class => "question_display"}
-- @questions.each do |question|
-  %li #{link_to question.title, question}
+- if current_user
+  %ul{:class => "question_display"}
+  - @questions.each do |question|
+    %li #{link_to question.title, question}
