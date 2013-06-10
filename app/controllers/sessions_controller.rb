@@ -23,8 +23,10 @@ class SessionsController < ApplicationController
         
         )
         
-        self.current_user = @user
+        # self.current_user = @user
         session[:id] = auth_hash[:id]
+        session[:uid] = auth_hash[:uid]
+        session[:name] = auth_hash[:extra][:raw_info][:first_name]
   
     redirect_to '/'
     end
