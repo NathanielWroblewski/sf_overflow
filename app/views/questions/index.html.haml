@@ -1,5 +1,9 @@
 %h1 Move SF 
 
+- if flash[:error]
+  %p 
+  .error
+  =h flash[:error] 
 
 #map-canvas{:style=>"width: 800px; height: 400px"}
 
