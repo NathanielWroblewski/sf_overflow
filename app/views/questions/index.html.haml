@@ -6,8 +6,7 @@
 
 #map-canvas{:style=>"width: 800px; height: 400px"}
 
-
-- if current_user
-  %ul{:class => "question_display"}
-  - @questions.each do |question|
-    %li #{link_to question.title, question}
+%h3 Open Questions
+%ul{:class => "question_display"}
+- @questions.each do |question|
+  %li #{link_to question.title, question}
