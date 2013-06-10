@@ -14,22 +14,22 @@ function initialize() {
   var featureOpts = [
     {
       stylers: [
-        { hue: '#890000' },
+        { hue: 'normal' },
         { visibility: 'simplified' },
-        { gamma: 0.5 },
-        { weight: 0.5 }
+        { gamma: 0 },
+        { weight: 0 }
       ]
     },
     {
       elementType: 'labels',
       stylers: [
-        { visibility: 'off' }
+        { visibility: 'on' }
       ]
     },
     {
       featureType: 'water',
       stylers: [
-        { color: '#890000' }
+        { color: 'ocean' }
       ]
     }
   ];
