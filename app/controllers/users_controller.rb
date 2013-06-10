@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.id.nil?
-      redirect_to root_path
+      redirect_to root_path, :flash => { :error => "Invalid username, email or password." }
     else 
       session[:id] = @user.id
       redirect_to @user
