@@ -2,7 +2,7 @@ SfOverflow::Application.routes.draw do
   root :to => 'questions#index'
 
   resources :users, :except => :index
-  resource :session, :only => [:create, :destroy]
+  resource :session, :only => [:create, :destroy, :new]
   
   # get '/auth/:provider', to: 'session#new'
   get '/auth/:provider/callback', to: 'sessions#create'

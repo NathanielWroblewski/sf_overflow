@@ -1,5 +1,17 @@
 class SessionsController < ApplicationController
 
+  def new
+    @user = User.find_by_username(params["username"])
+    if @user
+      if @user.password = params["password"]
+       session[:id] = @user.id
+       redirect_to questions_path
+      end
+    else
+       redirect_to '/'
+    end
+  end
+
   def create
     @user = User.find_by_uid(auth_hash[:uid])
      if @user
