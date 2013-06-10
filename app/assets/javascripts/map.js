@@ -77,7 +77,7 @@ function initialize() {
       from: '1WimYUiAZ6hMXMPNonadLfsufixWeqb8MCGp-OHs'
       // https://www.google.com/fusiontables/DataSource?docid=1WimYUiAZ6hMXMPNonadLfsufixWeqb8MCGp-OHs
     },
-  });
+  }); 
 
   results.setMap(map);
 
