@@ -3,6 +3,7 @@
     - unless current_user
       %li= render "users/loginform"
       %li{:id=>"signup_button"}= link_to "Signup"
+      = render "users/signup_form"
     - if current_user
       %li #{link_to "Logout", session_path, :method => :delete}
       %li #{link_to "Profile", user_path(current_user)}
