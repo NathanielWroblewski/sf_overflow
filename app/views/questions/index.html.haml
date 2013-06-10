@@ -10,3 +10,14 @@
 %ul{:class => "question_display"}
 - @questions.each do |question|
   %li #{link_to question.title, question}
+
+%h3 News Feed
+- retrieve_craigslist_data.each do |rental|
+  = link_to rental[0], rental[2]
+  %br
+  = rental[1]
+  %br
+  = rental[3]
+  %br
+  %br
+

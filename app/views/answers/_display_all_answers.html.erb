@@ -1,11 +1,36 @@
+<% answer_answers = [] %>
+<% question_answers = [] %>
+
 <% answers.each do |answer| %>
-  <div class="answer">
-    <%= render '/answers/answer_votes', :answer => answer %>
-    <%= render '/answers/answer_description', :answer => answer, :question => question %>
-  
-      <% answer.get_children.each do |child| %>
-          <%= render '/answers/answer_votes', :answer => child %>
-          <%= render '/answers/answer_description', :answer => child, :question => question %>
-    </div>
-      <% end %>
+  <% question_answers << answer if answer.answerable_type == "Question" %>
+  <% answer_answers << answer if answer.answerable_type == "Answer" %>
 <% end %>
+
+<% answer_answers.sort_by!{|answer| answer.answerable_id} %>
+<% question_answers.sort_by!{|answer| answer.id} %>
+
+<% question_answers.each do |qanswer| %>
+  <%= render '/answers/answer_votes', :answer => qanswer %>
+  <%= render '/answers/answer_description', :answer => qanswer, :question => question %>
+  <% answer_answers.each do |aanswer| %>
+    <% if qanswer.id == aanswer.answerable_id %>
+      <div class="answer">
+        <%= render '/answers/answer_votes', :answer => aanswer %>
+        <%= render '/answers/answer_description', :answer => aanswer, :question => question %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+
+<!-- 
+ignore
+<#% answers.each do |answer| %>
+  <div class="answer">
+    <#%= render '/answers/answer_votes', :answer => answer %>
+    <#%= render '/answers/answer_description', :answer => answer, :question => question %>
+  </div>
+<#% end %> -->

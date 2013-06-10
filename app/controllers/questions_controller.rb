@@ -9,14 +9,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question.update_attributes(:user_id => session[:id])
-   @question.save
-      # render :json => render_to_string(:partial => 'question', :locals => { :question => @question}).to_json
-    
-
-   #  else
-   #    render :json => {}
-   # # redirect_to user_path(current_user)
-   #  end
+    @question.save
   end
 
   def new
@@ -28,8 +21,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    p params
     @question = Question.find(params[:id])
-    @answers = Answer.where(:answerable_type => "Question", :answerable_id => @question.id)
+    @answers = Answer.where(:question_id => @question.id)
     @answer = Answer.new
   end
 
@@ -40,9 +34,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    Question.destroy(params[:id])
+    question = Question.destroy(params[:id])
+    Answer.where(:question_id => question.id).destroy_all
     @user = User.find(session[:id])
     redirect_to @user
   end
-
 end

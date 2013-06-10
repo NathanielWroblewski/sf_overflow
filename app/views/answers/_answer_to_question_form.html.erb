@@ -1,0 +1,10 @@
+<div class="answer_form">
+  <%= form_for Answer.create do |form| %>
+    <p><%= form.label :answer, "Answer:" %></p>
+    <%= h form.text_field :description %><br>
+    <%= form.hidden_field :answerable_type, :value => "Question" %>
+    <%= form.hidden_field :answerable_id, :value => question.id %>
+    <%= form.hidden_field :question_id, :value => question.id %>
+    <%= form.submit "Submit Answer" %>
+  <% end %>
+</div>

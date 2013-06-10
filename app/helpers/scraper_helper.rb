@@ -23,10 +23,13 @@ module ScraperHelper
       end
     end
     
-    mega_array = link_array.zip(price_array, address_array)
+    @trulia_info = link_array.zip(price_array, address_array)
     
+  end
+
+  def export_trulia_data
     CSV.open('trulia_rentals.csv', 'wb') do |csv|
-      mega_array.each do |array|
+      @trulia_info.each do |array|
         csv << array
       end
     end
@@ -37,11 +40,11 @@ module ScraperHelper
 
     page = agent.get("http://sfbay.craigslist.org/apa/")
     
-    titles     = []
-    prices     = []
-    links      = []
-    locations  = []
-    mega_array = []
+    titles           = []
+    prices           = []
+    links            = []
+    locations        = []
+    @craigslist_data = []
 
     page.search('.pl a').each do |link|
       titles << link.text
@@ -56,12 +59,19 @@ module ScraperHelper
       locations << location.children[5].text.lstrip
     end
 
-    mega_array = titles.zip(prices, links, locations)
+    @craigslist_data = titles.zip(prices, links, locations)
 
-    CSV.open('craiglist_rentals.csv', 'wb') do |csv|
-      mega_array.each do |array|
+  end
+
+  def export_craigslist_data
+    CSV.open('craigslist_rentals.csv', 'wb') do |csv|
+      @craigslist_data.each do |array|
         csv << array
       end
     end
+  end
+
+  def retrieve_craigslist_data
+    craigslist_data = CSV.read('craigslist_rentals.csv')
   end
 end

@@ -1,6 +1,8 @@
 class AnswersController < ApplicationController
 
   def create
+    puts "*" * 50
+    p params[:answer]
     @answer = Answer.create(params[:answer])
     @answer.update_attributes(:user_id => session[:id], 
                               :answerable_type => params[:answer][:answerable_type], 

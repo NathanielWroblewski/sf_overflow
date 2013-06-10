@@ -1,0 +1,23 @@
+<%= render 'question_voting', :question => @question %>
+<%= render 'question_info', :question => @question %>
+<%= render 'answers/answer_to_question_form', :question => @question %>
+
+ <!-- MOVE ME TO A HELPER, BUT MAKE SURE THAT DOING SO DOESN'T BREAK LE CODE -->
+<% def print_answers_for(id) %> 
+  <% @answers.each do |answer| %>
+    <% if answer.answerable_id == id && answer.answerable_type == "Answer" %>
+      <%=  answer.description %><br>
+        <%= render 'answers/answer_to_answer_form', :answer => answer, :question => @question %>
+      <% print_answers_for(answer.id) %>
+    <% end %>
+  <% end %>
+<% end %>
+<!--  -->
+
+<% @answers.each do |answer| %>
+  <% if answer.answerable_type == "Question" %>
+    <%= answer.description %><br>
+    <%= render 'answers/answer_to_answer_form', :answer => answer, :question => @question %>
+    <% print_answers_for(answer.id) %>
+  <% end %>
+<% end %>
