@@ -1,11 +1,8 @@
 %h1 Move SF
 
-= render "users/loginform"
 = render "users/signup_form"
 
-<div id="map-canvas" style="width: 800px; height: 400px"></div>
-
-/ <iframe seamless src="http://mapsengine.google.com/map/view?mid=zYPZELugC5y0.kteJpst9-ta0" width="800" height="480"></iframe>
+#map-canvas{:style=>"width: 800px; height: 400px"}
 
 %ul{:class => "question_display"}
 - @questions.each do |question|
