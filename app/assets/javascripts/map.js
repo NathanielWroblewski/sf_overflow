@@ -63,6 +63,10 @@ function initialize() {
     strokeWeight: 1
   };
 
+  var infoWindow = new google.maps.InfoWindow({
+    content: '<p>DevBootcamp</p>'
+  });
+
   var dbc = new google.maps.Marker({
     position: new google.maps.LatLng(37.79221,-122.406141),
     title:"Dev Bootcamp",
@@ -71,13 +75,17 @@ function initialize() {
   });
   dbc.setMap(map)
 
+  google.maps.event.addListener(dbc, 'click', function() {
+    infoWindow.open(map,dbc);
+  });
+
   var results = new google.maps.FusionTablesLayer({
     query: {
-      select: 'address',
-      from: '1WimYUiAZ6hMXMPNonadLfsufixWeqb8MCGp-OHs'
-      // https://www.google.com/fusiontables/DataSource?docid=1WimYUiAZ6hMXMPNonadLfsufixWeqb8MCGp-OHs
+      select: 'Address',
+      from: '1LKZBQnaX1WQQL2QQTN9viqTSO9rTFSOPkBw1rbg'
+      // https://www.google.com/fusiontables/DataSource?docid=1LKZBQnaX1WQQL2QQTN9viqTSO9rTFSOPkBw1rbg
     },
-  }); 
+  });
 
   results.setMap(map);
 
