@@ -4,6 +4,9 @@ SfOverflow::Application.routes.draw do
   resources :users, :except => :index
   resource :session, :only => [:create, :destroy]
   
+  # get '/auth/:provider', to: 'session#new'
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   resources :questions, :answers do
     post '/upvote' => 'votes#upvote'
     post '/downvote' => 'votes#downvote'

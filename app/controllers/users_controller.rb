@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
   def create
     @user = User.create(params[:user])
     if @user.id.nil?
