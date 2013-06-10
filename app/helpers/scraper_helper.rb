@@ -25,7 +25,7 @@ module ScraperHelper
     
     mega_array = link_array.zip(price_array, address_array)
     
-    CSV.open('blah.csv', 'wb') do |csv|
+    CSV.open('trulia_rentals.csv', 'wb') do |csv|
       mega_array.each do |array|
         csv << array
       end
@@ -37,10 +37,11 @@ module ScraperHelper
 
     page = agent.get("http://sfbay.craigslist.org/apa/")
     
-    titles   = []
-    prices   = []
-    links    = []
-    location = []
+    titles     = []
+    prices     = []
+    links      = []
+    locations  = []
+    mega_array = []
 
     page.search('.pl a').each do |link|
       titles << link.text
@@ -51,6 +52,16 @@ module ScraperHelper
       prices << price.text
     end
 
-    
+    page.search('.pnr').each do |location|
+      locations << location.children[5].text.lstrip
+    end
+
+    mega_array = titles.zip(prices, links, locations)
+
+    CSV.open('craiglist_rentals.csv', 'wb') do |csv|
+      mega_array.each do |array|
+        csv << array
+      end
+    end
   end
 end
