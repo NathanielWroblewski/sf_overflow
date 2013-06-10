@@ -1,7 +1,8 @@
 %nav
   %ul
     - unless current_user
-      %li= render "users/loginform"
+      %li{:id=>"login_button"}= link_to "Login"
+      = render "users/loginform"
       %li{:id=>"signup_button"}= link_to "Signup"
       = render "users/signup_form"
     - if current_user
